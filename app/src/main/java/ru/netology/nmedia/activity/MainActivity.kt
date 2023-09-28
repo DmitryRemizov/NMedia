@@ -19,20 +19,23 @@ class MainActivity : AppCompatActivity() {
                 author.text = post.author
                 published.text = post.published
                 content.text = post.content
+
                 likeCount.text = post.likes.toString()
+                shareCount.text = reductionNumber(post.share)
+                viewsCount.text = reductionNumber(post.views)
 
                 like.setImageResource(if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24)
                 likeCount.text = post.likes.toString()
 
                 share.setOnClickListener {
-                    post.share += 100
-                    shareCount.text = reductionNumber(post.share)
+                    share
+
                 }
 
-                views.setOnClickListener {
-                    post.views += 100
-                    viewsCount.text = reductionNumber(post.views)
-                }
+               // views.setOnClickListener {
+                   // post.views += 100
+
+               //4 }
             }
         }
 
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-private fun reductionNumber(number: Int): String {
+fun reductionNumber(number: Int): String {
     return when {
         number < 1000 -> "$number"
         number < 10000 && number % 1000 == 0 -> number.toString()[0] + "К"
