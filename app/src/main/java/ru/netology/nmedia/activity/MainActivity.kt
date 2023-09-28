@@ -31,11 +31,9 @@ class MainActivity : AppCompatActivity() {
                     share
 
                 }
-
-               // views.setOnClickListener {
-                   // post.views += 100
-
-               //4 }
+                views.setOnClickListener {
+                    views
+                }
             }
         }
 
@@ -44,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
 fun reductionNumber(number: Int): String {
     return when {
         number < 1000 -> "$number"
