@@ -26,17 +26,16 @@ class MainActivity : AppCompatActivity() {
 
                 like.setImageResource(if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24)
                 likeCount.text = post.likes.toString()
-
-                share.setOnClickListener {
-                    share
-
-                }
-                views.setOnClickListener {
-                    views
-                }
             }
         }
+        
+        binding.share.setOnClickListener {
+            viewModel.share()
 
+        }
+        binding.views.setOnClickListener {
+            viewModel.view()
+        }
         binding.like.setOnClickListener {
             viewModel.like()
         }
